@@ -1,24 +1,24 @@
 package com.etsia.user.application.service;
 
-import com.etsia.user.domain.model.User;
+
+import com.etsia.common.domain.model.UserDto;
+import com.etsia.common.infrastructure.entities.User;
 import com.etsia.user.domain.repository.UserRepository;
 import com.etsia.user.domain.service.UserDomainService;
 import com.etsia.user.infrastructure.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @AllArgsConstructor
 public class UserFindByIdService {
 
     private final UserRepository userRepository;
-    private final UserDomainService userDomainService;
+    //private final UserDomainService userDomainService;
 
-    public User exec(Integer id){
-        if(!userDomainService.existsByEmail(id.toString())){
-            throw new ResourceNotFoundException("User Not found", id);
-        }
-
+    public Optional<UserDto> exec(Integer id){
         return userRepository.FindById(id);
     }
 }
