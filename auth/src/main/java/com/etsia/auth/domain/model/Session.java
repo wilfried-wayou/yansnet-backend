@@ -1,6 +1,7 @@
 package com.etsia.auth.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
@@ -20,11 +21,13 @@ public class Session {
     @Column(name = "session_id", nullable = false)
     private UUID id;
 
+    @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @NotNull
     @Column(name = "access_token", nullable = false, length = Integer.MAX_VALUE)
     private String accessToken;
 

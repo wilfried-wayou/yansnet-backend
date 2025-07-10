@@ -4,6 +4,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,12 +18,17 @@ public class User {
     @Column(name = "user_id", nullable = false)
     private Integer id;
 
+    @Size(max = 255)
+    @NotNull
     @Column(name = "email", nullable = false)
     private String email;
 
+    @Size(max = 50)
     @Column(name = "phonenumber", length = 50)
     private String phonenumber;
 
+    @Size(max = 255)
+    @NotNull
     @Column(name = "password", nullable = false)
     private String password;
 

@@ -2,9 +2,9 @@ package com.etsia.auth.infrastructure.repository;
 
 import com.etsia.auth.domain.model.Session;
 import com.etsia.auth.domain.model.User;
-import com.etsia.auth.domain.model.dto.session.SignIn;
-import com.etsia.auth.domain.model.dto.session.SignOut;
-import com.etsia.auth.domain.model.dto.session.SignUp;
+import com.etsia.auth.domain.model.dto.request.session.SignIn;
+import com.etsia.auth.domain.model.dto.request.session.SignOut;
+import com.etsia.auth.domain.model.dto.request.session.SignUp;
 import com.etsia.auth.domain.repository.SessionRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;

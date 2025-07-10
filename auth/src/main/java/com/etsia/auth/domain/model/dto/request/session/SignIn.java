@@ -1,4 +1,4 @@
-package com.etsia.auth.domain.model.dto.session;
+package com.etsia.auth.domain.model.dto.request.session;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;

@@ -1,6 +1,7 @@
 package com.etsia.auth.infrastructure.repository;
 
 import com.etsia.auth.domain.model.User;
+import com.etsia.auth.domain.model.dto.request.user.UserUpdateDto;
 import com.etsia.auth.domain.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -22,8 +23,8 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public void Save(User user) {
-        jpaUserRepository.save(user);
+    public User Save(User user) {
+        return jpaUserRepository.save(user);
     }
 
     @Override
@@ -36,5 +37,19 @@ public class UserRepositoryImpl implements UserRepository {
         User user_profile = jpaUserRepository.findByEmail(email);
         if (user_profile != null && user_profile.getPassword().equals(password)) { throw new RuntimeException("User not found");}
         return user_profile;
+    }
+
+    @Override
+    public User update(UserUpdateDto user) {
+        User user_update = new User();
+        user_update.setId(user.getId());
+        user_update.setEmail(user.getEmail());
+        user_update.setPassword(user.getPassword());
+        return jpaUserRepository.save(user_update);
+    }
+
+    @Override
+    public void Delete(Integer id) {
+        jpaUserRepository.deleteById(id);
     }
 }

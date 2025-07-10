@@ -5,7 +5,7 @@ public class UnauthorizedException extends BaseException {
         super(message);
     }
 
-    public UnauthorizedException() {
-        super("Opération non autorisée");
-    }
+    //public UnauthorizedException() {
+        //super("Opération non autorisée");
+    //}
 }

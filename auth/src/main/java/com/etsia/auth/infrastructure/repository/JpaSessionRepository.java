@@ -9,7 +9,6 @@ import java.util.UUID;
 
 public interface JpaSessionRepository extends JpaRepository<Session, UUID> {
 
-    List<Session> findByUser(User user);
-
+    //List<Session> findByUser(User user);
     Session findByUser(User user);
 }
