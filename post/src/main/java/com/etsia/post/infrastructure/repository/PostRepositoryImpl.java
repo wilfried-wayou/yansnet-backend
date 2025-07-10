@@ -2,6 +2,7 @@ package com.etsia.post.infrastructure.repository;
 
 import com.etsia.common.domain.model.PostDto;
 import com.etsia.common.infrastructure.config.Mapper;
+import com.etsia.common.infrastructure.entities.Post;
 import com.etsia.post.domain.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -18,8 +19,9 @@ public class PostRepositoryImpl implements PostRepository {
     private final JpaPostRepository jpaPostRepository;
 
     @Override
-    public PostDto save(PostDto post) {
-        return null;
+    public PostDto save(PostDto postDto) {
+        Post post = jpaPostRepository.save(Mapper.toPostEntity(postDto));
+        return Mapper.toPostDto(post);
     }
 
     @Override

@@ -1,16 +1,14 @@
 package com.etsia.post.infrastructure.controller;
 
 import com.etsia.common.domain.model.PostDto;
+import com.etsia.post.application.dto.CreatePostRequest;
 import com.etsia.post.application.dto.PageResponse;
 import com.etsia.post.application.service.PostApplicationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/posts")
@@ -35,6 +33,11 @@ public class PostController {
     public ResponseEntity<Void> deletePost(@RequestParam Integer id) {
         postService.deletePost(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping
+    public ResponseEntity<PostDto> save(@RequestBody CreatePostRequest request) {
+        return ResponseEntity.ok(postService.save(request));
     }
 
 }

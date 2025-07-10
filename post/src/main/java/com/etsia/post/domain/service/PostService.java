@@ -19,4 +19,8 @@ public class PostService {
     public void deletePost(Integer id) {
         postRepository.delete(id);
     }
+
+    public PostDto save(PostDto post) {
+        return postRepository.save(post);
+    }
 }

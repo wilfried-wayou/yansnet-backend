@@ -18,6 +18,7 @@ import java.time.Instant;
 @NoArgsConstructor
 public class Post {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ColumnDefault("nextval('posts_id_seq')")
     @Column(name = "id", nullable = false)
     private Integer id;

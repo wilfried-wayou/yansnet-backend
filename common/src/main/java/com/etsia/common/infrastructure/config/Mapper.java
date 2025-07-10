@@ -364,14 +364,14 @@ public class Mapper {
                 .content(dto.getContent())
                 .totalComments(dto.getTotalComments())
                 .totalLikes(dto.getTotalLikes())
-//                .deletedAt(dto.getDeletedAt())
-//                .createdAt(dto.getCreatedAt())
-                .user(User.builder()
-                        .id(dto.getUser() != null ? dto.getUser().getId() : null)
-                        .build())
-                .channel(Channel.builder()
-                        .id(dto.getChannel() != null ? dto.getChannel().getId() : null)
-                        .build())
+                .deletedAt(dto.getDeletedAt())
+                .createdAt(dto.getCreatedAt())
+                .user(dto.getChannel() != null ?User.builder()
+                        .id(dto.getUser().getId())
+                        .build():null)
+                .channel(dto.getChannel() != null ?Channel.builder()
+                        .id(dto.getChannel().getId())
+                        .build():null)
                 .build();
     }
 
