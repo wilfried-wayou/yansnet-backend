@@ -3,20 +3,22 @@ package com.etsia.auth.application.service;
 import com.etsia.auth.domain.model.User;
 import com.etsia.auth.domain.repository.UserRepository;
 import com.etsia.auth.domain.service.UserDomainService;
-import com.etsia.auth.infrastructure.exception.EmailNotFoundException;
 import com.etsia.auth.infrastructure.exception.ResourceNotFoundException;
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @AllArgsConstructor
-public class UserFindByEmail {
+public class UserFindByIdService {
+
     private final UserRepository userRepository;
     private final UserDomainService userDomainService;
 
-    public User exec(String Email){
-        if(!userDomainService.existsByEmail(Email)){
-            throw new EmailNotFoundException("Email Not found");
+    public User exec(Integer id){
+        if(!userDomainService.existsByEmail(id.toString())){
+            throw new ResourceNotFoundException("User Not found", id);
         }
 
-        return userRepository.FindByEmail(Email);
+        return userRepository.FindById(id);
     }
 }

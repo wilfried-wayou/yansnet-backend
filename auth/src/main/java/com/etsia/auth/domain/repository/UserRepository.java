@@ -1,6 +1,7 @@
 package com.etsia.auth.domain.repository;
 
 import com.etsia.auth.domain.model.User;
+import com.etsia.auth.domain.model.dto.request.user.CreateUserDto;
 import com.etsia.auth.domain.model.dto.request.user.UserUpdateDto;
 
 public interface UserRepository {

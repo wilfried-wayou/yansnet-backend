@@ -6,7 +6,9 @@ import com.etsia.auth.domain.repository.UserRepository;
 import com.etsia.auth.infrastructure.repository.UserRepositoryImpl;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 @AllArgsConstructor
 public class UserDomainService implements UserRepository {
 
