@@ -1,6 +1,8 @@
 ### 📁 `infrastructure/controller` — README
 
-Le package `controller` contient les **adaptateurs Web** de l’application, notamment les **contrôleurs REST**. Ces classes utilisent les annotations Spring comme `@RestController` et reçoivent les **requêtes HTTP** provenant des clients (navigateur, app mobile, etc.).
+Le package `controller` contient les **adaptateurs Web** de l’application, notamment les **contrôleurs REST**. Ces
+classes utilisent les annotations Spring comme `@RestController` et reçoivent les **requêtes HTTP** provenant des
+clients (navigateur, app mobile, etc.).
 
 ---
 
@@ -15,7 +17,7 @@ Le package `controller` contient les **adaptateurs Web** de l’application, not
 ## ✅ Bonnes pratiques appliquées
 
 | Bonne pratique                         | Description                                                      |
-| -------------------------------------- | ---------------------------------------------------------------- |
+|----------------------------------------|------------------------------------------------------------------|
 | ✅ @RestController uniquement ici       | Les couches `domain` et `application` ne dépendent pas de Spring |
 | ✅ DTOs spécifiques à la couche Web     | Séparation claire des objets métier et des objets exposés        |
 | ✅ Mapping explicite request → use case | Le contrôleur ne contient aucune logique métier                  |
@@ -52,7 +54,7 @@ class UserController(
 ## 📦 Contenu typique du package
 
 | Fichier                          | Rôle                                                         |
-| -------------------------------- | ------------------------------------------------------------ |
+|----------------------------------|--------------------------------------------------------------|
 | `UserController.kt`              | Contrôleur REST exposant les endpoints liés aux utilisateurs |
 | `CreateUserRequest.kt`           | DTO représentant le corps de la requête POST                 |
 | `UserResponse.kt`                | DTO représentant la réponse envoyée au client                |
