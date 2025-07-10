@@ -3,52 +3,44 @@ package com.etsia.user.domain.service;
 import com.etsia.user.domain.model.User;
 import com.etsia.user.domain.model.dto.request.user.UserUpdateDto;
 import com.etsia.user.domain.repository.UserRepository;
-import com.etsia.user.infrastructure.repository.UserRepositoryImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class UserDomainService implements UserRepository {
+public class UserDomainService {
 
-    private final UserRepositoryImpl userRepositoryImpl;
+    private final UserRepository userRepository;
 
     public Boolean IsEmailUnique(String email){
-        return !userRepositoryImpl.existsByEmail(email);
+        return !userRepository.existsByEmail(email);
     }
 
-    @Override
     public User FindById(Integer id) {
-        return userRepositoryImpl.FindById(id);
+        return userRepository.FindById(id);
     }
 
-    @Override
     public User FindByEmail(String email) {
-        return userRepositoryImpl.FindByEmail(email);
+        return userRepository.FindByEmail(email);
     }
 
-    @Override
     public User Save(User user) {
-        return userRepositoryImpl.Save(user);
+        return userRepository.Save(user);
     }
 
-    @Override
     public Boolean existsByEmail(String email) {
-        return !userRepositoryImpl.existsByEmail(email);
+        return !userRepository.existsByEmail(email);
     }
 
-    @Override
     public User FindByEmailAndPassword(String email, String password) {
-        return userRepositoryImpl.FindByEmailAndPassword(email, password);
+        return userRepository.FindByEmailAndPassword(email, password);
     }
 
-    @Override
     public User update(UserUpdateDto user) {
-        return userRepositoryImpl.update(user);
+        return userRepository.update(user);
     }
 
-    @Override
     public void Delete(Integer id) {
-        userRepositoryImpl.Delete(id);
+        userRepository.Delete(id);
     }
 }

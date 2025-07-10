@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserexistsByEmailService {
 
-    @Qualifier("userRepositoryImpl")
     private final UserRepository userRepository;
     private final UserDomainService userDomainService;
 
