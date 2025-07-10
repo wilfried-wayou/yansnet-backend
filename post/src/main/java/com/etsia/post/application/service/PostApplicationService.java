@@ -1,7 +1,7 @@
-package com.etsia.post.domain.service;
+package com.etsia.post.application.service;
 
 import com.etsia.common.domain.model.PostDto;
-import com.etsia.post.domain.repository.PostRepository;
+import com.etsia.post.domain.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,14 +9,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class PostService {
-    private final PostRepository postRepository;
+public class PostApplicationService {
+    private final PostService postService;
 
     public Page<PostDto> getAllPosts(Pageable pageable) {
-        return postRepository.findAll(pageable);
+        return postService.getAllPosts(pageable);
     }
 
     public void deletePost(Integer id) {
-        postRepository.delete(id);
+        postService.deletePost(id);
     }
+
 }

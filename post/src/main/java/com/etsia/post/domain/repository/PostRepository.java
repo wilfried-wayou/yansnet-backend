@@ -1,11 +1,16 @@
 package com.etsia.post.domain.repository;
 
-import java.util.UUID;
+import com.etsia.common.domain.model.PostDto;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import java.util.List;
+import java.util.Optional;
 
 public interface PostRepository {
-    Post save(Post post);
-    Optional<Post> findById(UUID id);
-    List<Post> findByAuthorId(UUID authorId);
-    void delete(UUID id);
-
+    PostDto save(PostDto post);
+    Optional<PostDto> findById(Integer id);
+    List<PostDto> findByAuthorId(Integer authorId);
+    void delete(Integer id);
+    Page<PostDto> findAll(Pageable pageable);
 }
