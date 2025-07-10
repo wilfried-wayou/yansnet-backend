@@ -27,8 +27,15 @@ extra["springModulithVersion"] = "1.4.1"
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-client")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.modulith:spring-modulith-starter-core")
+	implementation("org.keycloak:keycloak-admin-client:23.0.4")
+	implementation("jakarta.ws.rs:jakarta.ws.rs-api:3.1.0")
 	implementation(project(":common"))
+	runtimeOnly("org.postgresql:postgresql")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")
