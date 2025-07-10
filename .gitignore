@@ -39,6 +39,7 @@ bin/
 .vscode/
 .idea/*
 .qodo
+database
 
 ### Mac OS ###
 .DS_Store
