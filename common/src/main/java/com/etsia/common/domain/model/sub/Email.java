@@ -1,7 +1,10 @@
 package com.etsia.common.domain.model.sub;
 
+import jakarta.persistence.Embeddable;
+
 import java.util.regex.Pattern;
 
+@Embeddable
 public record Email(String value) {
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9+_.-]+@(.+)$");
 

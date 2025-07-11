@@ -32,8 +32,8 @@ public class Message {
     @JoinColumn(name = "user_id")
     private User user;
 
-     @Column(name = "type", columnDefinition = "message_type not null")
-     @Enumerated(EnumType.STRING)
-     private MessageType type;
+    @Column(name = "type", columnDefinition = "message_type not null")
+    @Enumerated(EnumType.STRING)
+    private MessageType type;
 
 }
