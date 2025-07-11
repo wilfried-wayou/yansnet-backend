@@ -19,6 +19,6 @@ public class UserexistsByEmailService {
             throw new EmailNotFoundException("Email Not found");
         }
 
-        return !userRepository.existsByEmail(Email);
+        return userRepository.existsByEmail(Email);
     }
 }

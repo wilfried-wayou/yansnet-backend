@@ -30,13 +30,13 @@ public class MessagePublisher {
      *
      * @return The name of the declared admin queue
      */
-    @Bean
-    String initializeMessagingInfrastructure() {
-        rabbitAdmin.declareExchange(
-            ExchangeBuilder.fanoutExchange(GENERAL_EXCHANGE).build()
-        );
-        return rabbitAdmin.declareQueue(new Queue(ADMIN_QUEUE));
-    }
+//    @Bean
+//    String initializeMessagingInfrastructure() {
+//        rabbitAdmin.declareExchange(
+//            ExchangeBuilder.fanoutExchange(GENERAL_EXCHANGE).build()
+//        );
+//        return rabbitAdmin.declareQueue(new Queue(ADMIN_QUEUE));
+//    }
 
     /**
      * Sends a message to a specific routing key.

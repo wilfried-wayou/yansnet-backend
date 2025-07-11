@@ -33,7 +33,7 @@ public class UserDomainService {
     }
 
     public Boolean existsByEmail(Email email) {
-        return !userRepository.existsByEmail(email);
+        return userRepository.existsByEmail(email);
     }
 
     public Optional<UserDto> FindByEmailAndPassword(Email email, String password) {

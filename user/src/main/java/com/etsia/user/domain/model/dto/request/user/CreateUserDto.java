@@ -19,7 +19,6 @@ import java.io.Serializable;
 @Builder
 @Value
 public class CreateUserDto implements Serializable {
-    @NotNull(message = "Id is required")
     Integer id;
     @NotBlank(message = "Email is required")
     Email email;
