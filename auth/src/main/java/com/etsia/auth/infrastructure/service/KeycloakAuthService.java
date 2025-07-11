@@ -1,8 +1,10 @@
 package com.etsia.auth.infrastructure.service;
 
-import com.etsia.auth.domain.model.User;
+import com.etsia.auth.domain.model.AuthUser;
 import com.etsia.auth.domain.repository.UserRepository;
 import com.etsia.auth.domain.service.AuthService;
+import com.etsia.common.domain.model.sub.Email;
+import com.etsia.common.domain.model.sub.PhoneNumber;
 import org.keycloak.admin.client.Keycloak;
 import org.keycloak.admin.client.resource.RealmResource;
 import org.keycloak.admin.client.resource.UsersResource;
@@ -10,6 +12,7 @@ import org.keycloak.representations.idm.CredentialRepresentation;
 import org.keycloak.representations.idm.UserRepresentation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
@@ -46,20 +49,20 @@ public class KeycloakAuthService implements AuthService {
     }
 
     @Override
-    public User authenticate(String email, String password) {
+    public AuthUser authenticate(Email email, String password) {
         // Obtenir le token JWT depuis Keycloak
-        String token = getTokenFromKeycloak(email, password);
+        String token = getTokenFromKeycloak(email.toString(), password);
         if (token == null) {
             throw new IllegalArgumentException("Invalid credentials");
         }
 
         // Récupérer l'utilisateur depuis notre base de données
-        Optional<User> userOpt = userRepository.findByEmail(email);
+        Optional<AuthUser> userOpt = userRepository.findByEmail(email);
         if (userOpt.isEmpty()) {
             throw new IllegalArgumentException("User not found in local database");
         }
 
-        User user = userOpt.get();
+        AuthUser user = userOpt.get();
         if (!user.canAuthenticate()) {
             throw new IllegalStateException("User account is inactive or blocked");
         }
@@ -68,17 +71,17 @@ public class KeycloakAuthService implements AuthService {
     }
 
     @Override
-    public User register(String email, String password, String phoneNumber) {
+    public AuthUser register(Email email, String password, PhoneNumber phoneNumber) {
         // Vérifier si l'utilisateur existe déjà
         if (userRepository.existsByEmail(email)) {
             throw new IllegalArgumentException("User already exists with this email");
         }
 
         // Créer l'utilisateur dans Keycloak d'abord
-        String keycloakUserId = createKeycloakUser(email, password);
+        String keycloakUserId = createKeycloakUser(email.toString(), password);
 
         // Créer l'utilisateur dans notre base de données avec un hash du mot de passe
-        User user = new User(generateUserId(), email, "KEYCLOAK_MANAGED");
+        AuthUser user = new AuthUser(generateUserId(), email, "KEYCLOAK_MANAGED");
         user.updatePhoneNumber(phoneNumber);
 
         return userRepository.save(user);
@@ -91,19 +94,19 @@ public class KeycloakAuthService implements AuthService {
     }
 
     @Override
-    public boolean isValidCredentials(String email, String password) {
-        String token = getTokenFromKeycloak(email, password);
+    public boolean isValidCredentials(Email email, String password) {
+        String token = getTokenFromKeycloak(email.toString(), password);
         return token != null;
     }
 
     @Override
     public void changePassword(Integer userId, String oldPassword, String newPassword) {
-        Optional<User> userOpt = userRepository.findById(userId);
+        Optional<AuthUser> userOpt = userRepository.findById(userId);
         if (userOpt.isEmpty()) {
             throw new IllegalArgumentException("User not found");
         }
 
-        User user = userOpt.get();
+        AuthUser user = userOpt.get();
 
         // Vérifier l'ancien mot de passe avec Keycloak
         if (!isValidCredentials(user.getEmail(), oldPassword)) {
@@ -111,7 +114,7 @@ public class KeycloakAuthService implements AuthService {
         }
 
         // Mettre à jour le mot de passe dans Keycloak
-        updateKeycloakPassword(user.getEmail(), newPassword);
+        updateKeycloakPassword(user.getEmail().toString(), newPassword);
 
         // Mettre à jour dans notre base de données
         user.updatePassword(newPassword);

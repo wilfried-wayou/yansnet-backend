@@ -1,13 +1,15 @@
 package com.etsia.auth.infrastructure.repository;
 
+import com.etsia.common.infrastructure.entities.User;
+import com.etsia.common.domain.model.sub.Email;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface JpaUserRepository extends JpaRepository<UserEntity, Integer> {
-    Optional<UserEntity> findByEmail(String email);
+public interface JpaUserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByEmail(Email email);
 
-    boolean existsByEmail(String email);
+    boolean existsByEmail(Email email);
 }

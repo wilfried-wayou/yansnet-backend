@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository
+// @Repository
 public interface JpaKeycloakUserMappingRepository extends JpaRepository<KeycloakUserMappingEntity, Integer> {
     
     Optional<KeycloakUserMappingEntity> findByKeycloakUserId(String keycloakUserId);

@@ -1,19 +1,20 @@
 package com.etsia.auth.domain.repository;
 
-import com.etsia.auth.domain.model.User;
+import com.etsia.auth.domain.model.AuthUser;
+import com.etsia.common.domain.model.sub.Email;
 
 import java.util.Optional;
 
 public interface UserRepository {
-    User save(User user);
+    AuthUser save(AuthUser user);
 
-    Optional<User> findById(Integer userId);
+    Optional<AuthUser> findById(Integer userId);
 
-    Optional<User> findByEmail(String email);
+    Optional<AuthUser> findByEmail(Email email);
 
-    boolean existsByEmail(String email);
+    boolean existsByEmail(Email email);
 
-    void delete(User user);
+    void delete(AuthUser user);
 
     void deleteById(Integer userId);
 }

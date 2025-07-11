@@ -47,7 +47,7 @@ public class User {
     @JoinColumn(name = "batch_id")
     private Batch batch;
 
-    @Column(name = "email", columnDefinition = "email_type not null")
+    @Column(name = "email", columnDefinition = "email_type", nullable = false)
     @Convert(converter = EmailConverter.class)
     private Email email;
 

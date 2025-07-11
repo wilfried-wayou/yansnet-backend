@@ -1,7 +1,10 @@
 package com.etsia.auth.infrastructure.repository;
 
-import com.etsia.auth.domain.model.User;
+import com.etsia.auth.domain.model.AuthUser;
+import com.etsia.auth.domain.model.UserMapper;
 import com.etsia.auth.domain.repository.UserRepository;
+import com.etsia.common.domain.model.sub.Email;
+import com.etsia.common.infrastructure.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -11,77 +14,45 @@ import java.util.Optional;
 public class UserRepositoryImpl implements UserRepository {
 
     private final JpaUserRepository jpaUserRepository;
+    private final UserMapper userMapper;
 
     @Autowired
-    public UserRepositoryImpl(JpaUserRepository jpaUserRepository) {
+    public UserRepositoryImpl(JpaUserRepository jpaUserRepository, UserMapper userMapper) {
         this.jpaUserRepository = jpaUserRepository;
+        this.userMapper = userMapper;
     }
 
     @Override
-    public User save(User user) {
-        UserEntity entity = toEntity(user);
-        UserEntity savedEntity = jpaUserRepository.save(entity);
-        return toDomain(savedEntity);
+    public AuthUser save(AuthUser user) {
+        User entity = userMapper.toEntity(user);
+        User savedEntity = jpaUserRepository.save(entity);
+        return userMapper.toDomainModel(savedEntity);
     }
 
     @Override
-    public Optional<User> findById(Integer userId) {
+    public Optional<AuthUser> findById(Integer userId) {
         return jpaUserRepository.findById(userId)
-                .map(this::toDomain);
+                .map(userMapper::toDomainModel);
     }
 
     @Override
-    public Optional<User> findByEmail(String email) {
+    public Optional<AuthUser> findByEmail(Email email) {
         return jpaUserRepository.findByEmail(email)
-                .map(this::toDomain);
+                .map(userMapper::toDomainModel);
     }
 
     @Override
-    public boolean existsByEmail(String email) {
+    public boolean existsByEmail(Email email) {
         return jpaUserRepository.existsByEmail(email);
     }
 
     @Override
-    public void delete(User user) {
+    public void delete(AuthUser user) {
         jpaUserRepository.deleteById(user.getUserId());
     }
 
     @Override
     public void deleteById(Integer userId) {
         jpaUserRepository.deleteById(userId);
-    }
-
-    private UserEntity toEntity(User user) {
-        return new UserEntity(
-                user.getUserId(),
-                user.getEmail(),
-                user.getPhoneNumber(),
-                user.getPassword(),
-                user.isActive(),
-                user.isBlocked(),
-                user.getTotalFollowers(),
-                user.getTotalFollowing(),
-                user.getTotalPosts(),
-                user.getCategoryId(),
-                user.getDepartmentId(),
-                user.getBatchId()
-        );
-    }
-
-    private User toDomain(UserEntity entity) {
-        return new User(
-                entity.getUserId(),
-                entity.getEmail(),
-                entity.getPhoneNumber(),
-                entity.getPassword(),
-                entity.getIsActive(),
-                entity.getIsBlocked(),
-                entity.getTotalFollowers(),
-                entity.getTotalFollowing(),
-                entity.getTotalPosts(),
-                entity.getCategoryId(),
-                entity.getDepartmentId(),
-                entity.getBatchId()
-        );
     }
 }
