@@ -32,4 +32,8 @@ public class PostApplicationService {
         return postService.save(postDto);
     }
 
+    public PostDto update(PostDto postDto) {
+        return postService.update(postDto);
+    }
+
 }

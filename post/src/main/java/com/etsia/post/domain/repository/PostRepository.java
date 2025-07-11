@@ -13,4 +13,5 @@ public interface PostRepository {
     List<PostDto> findByAuthorId(Integer authorId);
     void delete(Integer id);
     Page<PostDto> findAll(Pageable pageable);
+    PostDto update(PostDto postDto);
 }

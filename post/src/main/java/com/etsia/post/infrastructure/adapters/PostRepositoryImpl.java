@@ -1,9 +1,10 @@
-package com.etsia.post.infrastructure.repository;
+package com.etsia.post.infrastructure.adapters;
 
 import com.etsia.common.domain.model.PostDto;
 import com.etsia.common.infrastructure.config.Mapper;
 import com.etsia.common.infrastructure.entities.Post;
 import com.etsia.post.domain.repository.PostRepository;
+import com.etsia.post.infrastructure.repository.JpaPostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,5 +43,11 @@ public class PostRepositoryImpl implements PostRepository {
     @Override
     public Page<PostDto> findAll(Pageable pageable) {
         return jpaPostRepository.findAll(pageable).map(Mapper::toPostDto);
+    }
+
+    @Override
+    public PostDto update(PostDto postDto) {
+        Post post = jpaPostRepository.save(Mapper.toPostEntity(postDto));
+        return Mapper.toPostDto(post);
     }
 }

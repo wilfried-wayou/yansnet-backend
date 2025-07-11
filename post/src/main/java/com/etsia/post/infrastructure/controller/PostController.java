@@ -40,4 +40,9 @@ public class PostController {
         return ResponseEntity.ok(postService.save(request));
     }
 
+    @PatchMapping
+    public ResponseEntity<PostDto> update(@RequestBody PostDto postDto) {
+        return ResponseEntity.ok(postService.update(postDto));
+    }
+
 }

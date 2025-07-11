@@ -23,4 +23,8 @@ public class PostService {
     public PostDto save(PostDto post) {
         return postRepository.save(post);
     }
+
+    public PostDto update(PostDto post) {
+        return postRepository.update(post);
+    }
 }
