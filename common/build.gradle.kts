@@ -35,6 +35,8 @@ dependencies {
     implementation("org.projectlombok:lombok")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
     annotationProcessor("org.projectlombok:lombok")
