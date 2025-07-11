@@ -27,7 +27,7 @@ public class SecurityConfig {
                         .requestMatchers("/auth/public/**").permitAll()
                         .requestMatchers("/auth/register", "/auth/login").permitAll()
                         .requestMatchers("/auth/health").permitAll()
-                        .requestMatchers("*").permitAll()
+                        .requestMatchers("/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .oauth2ResourceServer(oauth2 -> oauth2

@@ -29,7 +29,7 @@ public class PostController {
         return ResponseEntity.ok(PageResponse.from(postService.getAllPosts(pageRequest)));
     }
 
-    @GetMapping("/delete")
+    @DeleteMapping
     public ResponseEntity<Void> deletePost(@RequestParam Integer id) {
         postService.deletePost(id);
         return ResponseEntity.noContent().build();
