@@ -1,6 +1,8 @@
 ### 📁 `infrastructure/exception` — README
 
-Le package `exception` contient la **gestion centralisée des erreurs** dans l’application. Il permet d’**intercepter les exceptions**, de **standardiser les réponses d’erreur** envoyées aux clients, et de mieux séparer la logique métier de la gestion des cas d’erreurs techniques ou fonctionnels.
+Le package `exception` contient la **gestion centralisée des erreurs** dans l’application. Il permet d’**intercepter les
+exceptions**, de **standardiser les réponses d’erreur** envoyées aux clients, et de mieux séparer la logique métier de
+la gestion des cas d’erreurs techniques ou fonctionnels.
 
 ---
 
@@ -16,7 +18,7 @@ Le package `exception` contient la **gestion centralisée des erreurs** dans l�
 ## 📦 Structure typique
 
 | Fichier                                        | Rôle                                                                         |
-| ---------------------------------------------- | ---------------------------------------------------------------------------- |
+|------------------------------------------------|------------------------------------------------------------------------------|
 | `GlobalExceptionHandler`                       | Classe annotée avec `@ControllerAdvice` qui intercepte toutes les exceptions |
 | `CustomException` (ex: `BusinessException`)    | Exception métier personnalisée                                               |
 | `ErrorResponse`                                | Structure de réponse JSON retournée en cas d’erreur                          |
@@ -81,4 +83,5 @@ class GlobalExceptionHandler {
 
 ---
 
-Souhaites-tu maintenant un README pour un autre package (comme `messaging`, `bootstrap`, etc.) ou écrire `fin` pour conclure ?
+Souhaites-tu maintenant un README pour un autre package (comme `messaging`, `bootstrap`, etc.) ou écrire `fin` pour
+conclure ?

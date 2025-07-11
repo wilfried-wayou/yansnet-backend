@@ -1,6 +1,8 @@
 ### 📁 `application/service` — README
 
-Le package `application/service` contient les **services applicatifs** qui orchestrent les cas d’usage métier. Ces classes coordonnent les interactions entre la logique métier (`domain`), la persistence, et les autres services techniques.
+Le package `application/service` contient les **services applicatifs** qui orchestrent les cas d’usage métier. Ces
+classes coordonnent les interactions entre la logique métier (`domain`), la persistence, et les autres services
+techniques.
 
 ---
 
@@ -16,7 +18,7 @@ Le package `application/service` contient les **services applicatifs** qui orche
 ## 🧱 Rôle des Services Applicatifs
 
 | Fonction                              | Description                                                    |
-| ------------------------------------- | -------------------------------------------------------------- |
+|---------------------------------------|----------------------------------------------------------------|
 | Orchestrer les appels métiers         | Appeler plusieurs domain services, gérer la séquence d’actions |
 | Servir de façade pour les contrôleurs | Exposer une API métier simplifiée aux couches externes         |
 | Gérer les opérations non métier       | Validation simple, gestion des erreurs, transactions           |
