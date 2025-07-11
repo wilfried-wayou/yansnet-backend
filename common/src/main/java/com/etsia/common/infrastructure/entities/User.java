@@ -55,7 +55,7 @@ public class User {
     @Convert(converter = PhoneNumberConverter.class)
     private PhoneNumber phoneNumber;
 
- @ColumnDefault("0")
+    @ColumnDefault("0")
     @Column(name = "total_followers", columnDefinition = "positive_int")
     private int totalFollowers;
 

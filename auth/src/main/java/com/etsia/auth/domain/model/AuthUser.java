@@ -2,6 +2,7 @@ package com.etsia.auth.domain.model;
 
 import com.etsia.common.domain.model.sub.Email;
 import com.etsia.common.domain.model.sub.PhoneNumber;
+
 import java.util.Objects;
 
 public class AuthUser {
@@ -30,8 +31,8 @@ public class AuthUser {
     }
 
     public AuthUser(Integer userId, Email email, PhoneNumber phoneNumber, String password,
-                boolean isActive, boolean isBlocked, int totalFollowers, int totalFollowing,
-                int totalPosts, Integer categoryId, Integer departmentId, Integer batchId) {
+                    boolean isActive, boolean isBlocked, int totalFollowers, int totalFollowing,
+                    int totalPosts, Integer categoryId, Integer departmentId, Integer batchId) {
         this.userId = Objects.requireNonNull(userId, "User ID cannot be null");
         this.email = Objects.requireNonNull(email, "Email cannot be null");
         this.phoneNumber = phoneNumber;

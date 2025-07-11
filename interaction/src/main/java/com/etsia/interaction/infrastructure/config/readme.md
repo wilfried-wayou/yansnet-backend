@@ -1,6 +1,8 @@
 ### 📁 `infrastructure/config` — README
 
-Le package `config` contient toute la **configuration technique** spécifique à l'infrastructure de l’application. Il centralise la définition des **beans Spring**, des **adapters de configuration**, et les paramètres nécessaires au bon fonctionnement de l’environnement (base de données, sécurité, messaging, etc.).
+Le package `config` contient toute la **configuration technique** spécifique à l'infrastructure de l’application. Il
+centralise la définition des **beans Spring**, des **adapters de configuration**, et les paramètres nécessaires au bon
+fonctionnement de l’environnement (base de données, sécurité, messaging, etc.).
 
 ---
 
@@ -15,7 +17,7 @@ Le package `config` contient toute la **configuration technique** spécifique à
 ## 📦 Contenu typique du package
 
 | Élément                            | Rôle                                                                |
-| ---------------------------------- | ------------------------------------------------------------------- |
+|------------------------------------|---------------------------------------------------------------------|
 | `@Configuration` classes           | Déclare des beans ou adapte des configurations Spring               |
 | `@Enable*` annotations             | Active des modules Spring (JPA, Scheduling, etc.)                   |
 | `Properties` / `Record`            | Contient des configurations typées mappées depuis `application.yml` |
@@ -28,7 +30,8 @@ Le package `config` contient toute la **configuration technique** spécifique à
 
 * ✅ Utiliser `@Configuration` pour toute définition manuelle de bean.
 * ✅ Éviter d’utiliser des configurations inutiles dans d’autres couches.
-* ✅ Préférer des classes de configuration **unitaires et spécialisées** (ex: `SwaggerConfig`, `JpaConfig`, `RabbitConfig`).
+* ✅ Préférer des classes de configuration **unitaires et spécialisées** (ex: `SwaggerConfig`, `JpaConfig`,
+  `RabbitConfig`).
 * ✅ Séparer les **fichiers de propriétés** (`application.yml`) du code de configuration.
 
 ---
@@ -71,4 +74,5 @@ app:
 
 ---
 
-Tu peux envoyer `+` pour passer au sous-package suivant (par exemple `messaging`, `exception` s’ils existent), ou un nouveau nom de package/module.
+Tu peux envoyer `+` pour passer au sous-package suivant (par exemple `messaging`, `exception` s’ils existent), ou un
+nouveau nom de package/module.

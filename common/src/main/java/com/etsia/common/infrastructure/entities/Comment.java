@@ -56,7 +56,7 @@ public class Comment {
     @JoinColumn(name = "reply_to_comment_id")
     private Comment replyToComment;
 
-   @ColumnDefault("0")
+    @ColumnDefault("0")
     @Column(name = "total_likes", columnDefinition = "positive_int")
     private int totalLikes;
 

@@ -1,10 +1,13 @@
-Très bien, nous passons maintenant au module `infrastructure`, qui est la couche **la plus externe** dans l'architecture en oignon. Elle contient tous les **adaptateurs techniques** et les **implémentations concrètes**.
+Très bien, nous passons maintenant au module `infrastructure`, qui est la couche **la plus externe** dans l'architecture
+en oignon. Elle contient tous les **adaptateurs techniques** et les **implémentations concrètes**.
 
 ---
 
 ### 📁 `infrastructure/` — README
 
-Le module `infrastructure` contient les **implémentations concrètes** des ports définis dans le module `domain`. Il connecte le cœur de l’application aux **dépendances techniques** : base de données, web (REST), messagerie (RabbitMQ, Kafka), stockage, services tiers, etc.
+Le module `infrastructure` contient les **implémentations concrètes** des ports définis dans le module `domain`. Il
+connecte le cœur de l’application aux **dépendances techniques** : base de données, web (REST), messagerie (RabbitMQ,
+Kafka), stockage, services tiers, etc.
 
 ---
 
@@ -19,7 +22,7 @@ Le module `infrastructure` contient les **implémentations concrètes** des port
 ## 📦 Structure typique des sous-packages :
 
 | Package                 | Rôle                                                                    |
-| ----------------------- | ----------------------------------------------------------------------- |
+|-------------------------|-------------------------------------------------------------------------|
 | `controller`            | Adaptateurs REST : reçoit les requêtes HTTP et appelle les use cases    |
 | `repository`            | Implémentations concrètes des interfaces de persistence (via JPA, etc.) |
 | `config`                | Configuration technique Spring Boot (Beans, @Configuration, etc.)       |

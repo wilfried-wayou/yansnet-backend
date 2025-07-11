@@ -1,7 +1,7 @@
 package com.etsia.auth.infrastructure.repository;
 
-import com.etsia.common.infrastructure.entities.User;
 import com.etsia.common.domain.model.sub.Email;
+import com.etsia.common.infrastructure.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

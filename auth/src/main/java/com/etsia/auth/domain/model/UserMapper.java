@@ -1,8 +1,6 @@
 package com.etsia.auth.domain.model;
 
 import com.etsia.common.infrastructure.entities.User;
-import com.etsia.common.domain.model.sub.Email;
-import com.etsia.common.domain.model.sub.PhoneNumber;
 import org.springframework.stereotype.Component;
 
 @Component

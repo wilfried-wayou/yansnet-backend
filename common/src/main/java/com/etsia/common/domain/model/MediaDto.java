@@ -1,8 +1,8 @@
 package com.etsia.common.domain.model;
 
+import com.etsia.common.domain.model.sub.MediaType;
 import lombok.Builder;
 import lombok.Value;
-import com.etsia.common.domain.model.sub.MediaType;
 
 import java.io.Serializable;
 import java.time.Instant;
@@ -10,7 +10,6 @@ import java.time.Instant;
 /**
  * DTO for {@link com.etsia.common.infrastructure.entities.Media}
  */
-
 
 
 @Builder
@@ -21,5 +20,5 @@ public class MediaDto implements Serializable {
     Instant uploadedAt;
     PostDto post;
     MediaType type;
-    
+
 }
