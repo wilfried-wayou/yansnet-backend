@@ -23,6 +23,7 @@ public class ChannelUser {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "channel_id", nullable = false)
     private Channel channel;
+    @Enumerated(EnumType.STRING)
     @Column(name = "role", columnDefinition = "conversation_role not null")
     private ConversationRole role;
 }

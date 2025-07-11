@@ -1,6 +1,8 @@
 ### 📁 `domain/` — README
 
-Le module `domain` est le **cœur métier** de l'application. Il représente l'essence du **modèle métier** et des **règles de gestion** indépendamment de toute technologie. Dans une architecture en oignon (ou DDD), c’est la couche la plus **stable**, **testable**, et **centrale**.
+Le module `domain` est le **cœur métier** de l'application. Il représente l'essence du **modèle métier** et des **règles
+de gestion** indépendamment de toute technologie. Dans une architecture en oignon (ou DDD), c’est la couche la plus *
+*stable**, **testable**, et **centrale**.
 
 ---
 
@@ -16,7 +18,7 @@ Le module `domain` est le **cœur métier** de l'application. Il représente l'e
 ## 🧱 Structure typique
 
 | Sous-package | Rôle                                                               |
-| ------------ | ------------------------------------------------------------------ |
+|--------------|--------------------------------------------------------------------|
 | `model`      | Contient les entités, agrégats, value objects et enums métiers     |
 | `service`    | Contient les services métier (règles complexes ou transverses)     |
 | `repository` | Interfaces de persistence métier (à implémenter en infrastructure) |

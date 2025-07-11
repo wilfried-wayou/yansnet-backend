@@ -1,6 +1,7 @@
 ### 📁 `application/` — README
 
-Le module `application` constitue la **couche d’application** de l’architecture en oignon. Il orchestre la logique métier en coordonnant les cas d’usage, en appelant les services métier du domaine et les interfaces de persistence.
+Le module `application` constitue la **couche d’application** de l’architecture en oignon. Il orchestre la logique
+métier en coordonnant les cas d’usage, en appelant les services métier du domaine et les interfaces de persistence.
 
 ---
 
@@ -16,7 +17,7 @@ Le module `application` constitue la **couche d’application** de l’architect
 ## 📦 Structure typique
 
 | Package/Sous-module             | Description                                                               |
-| ------------------------------- | ------------------------------------------------------------------------- |
+|---------------------------------|---------------------------------------------------------------------------|
 | `service`                       | Contient les classes qui implémentent les cas d’usage métier (use cases). |
 | `dto` (optionnel)               | Contient les objets de transfert de données utilisés en interne.          |
 | `command` / `query` (optionnel) | Si CQRS, contient la définition des commandes et requêtes métier.         |
@@ -60,4 +61,5 @@ class CreateUserService(
 
 ---
 
-Tu peux envoyer `+` si tu veux que je génère le README d’un sous-package spécifique du module `application`, ou un autre package/module.
+Tu peux envoyer `+` si tu veux que je génère le README d’un sous-package spécifique du module `application`, ou un autre
+package/module.
