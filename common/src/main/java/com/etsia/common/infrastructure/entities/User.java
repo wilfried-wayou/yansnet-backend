@@ -47,7 +47,7 @@ public class User {
     @JoinColumn(name = "batch_id")
     private Batch batch;
 
-    @Column(name = "email", columnDefinition = "email_type not null")
+    @Column(name = "email", columnDefinition = "email_type", nullable = false)
     @Convert(converter = EmailConverter.class)
     private Email email;
 
@@ -55,7 +55,7 @@ public class User {
     @Convert(converter = PhoneNumberConverter.class)
     private PhoneNumber phoneNumber;
 
- @ColumnDefault("0")
+    @ColumnDefault("0")
     @Column(name = "total_followers", columnDefinition = "positive_int")
     private int totalFollowers;
 

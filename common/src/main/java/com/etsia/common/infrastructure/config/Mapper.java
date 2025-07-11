@@ -36,7 +36,7 @@ public class Mapper {
 
     public static MessageDto toMessageDto(Message entity) {
         if (entity == null) return null;
-        return  MessageDto.builder()
+        return MessageDto.builder()
                 .id(entity.getId())
                 .content(entity.getContent())
                 .url(entity.getUrl())
@@ -155,7 +155,7 @@ public class Mapper {
                 .id(dto.getId())
                 .description(dto.getDescription())
                 .totalFollowers(dto.getTotalFollowers())
-                .title( dto.getTitle())
+                .title(dto.getTitle())
                 .build();
     }
 
@@ -233,7 +233,7 @@ public class Mapper {
     public static CommentLikeDto toCommentLikeDto(CommentLike entity) {
         if (entity == null) return null;
         return CommentLikeDto.builder()
-                .id( CommentLikeIdDto.builder().commentId(entity.getComment().getId()).userId(entity.getUser().getId()).build())
+                .id(CommentLikeIdDto.builder().commentId(entity.getComment().getId()).userId(entity.getUser().getId()).build())
                 .user(UserDto.builder()
                         .id(entity.getUser() != null ? entity.getUser().getId() : null)
                         .build())

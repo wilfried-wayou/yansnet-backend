@@ -1,6 +1,7 @@
 ### 📁 `domain/service` — README
 
-Le package `service` dans le module `domain` contient les **services métier**. Il représente une couche de logique métier **complexe ou transverse**, qui ne peut pas être placée directement dans une entité ou un value object.
+Le package `service` dans le module `domain` contient les **services métier**. Il représente une couche de logique
+métier **complexe ou transverse**, qui ne peut pas être placée directement dans une entité ou un value object.
 
 ---
 
@@ -15,7 +16,7 @@ Le package `service` dans le module `domain` contient les **services métier**. 
 ## 🧱 Composition typique
 
 | Élément               | Rôle                                                                        |
-| --------------------- | --------------------------------------------------------------------------- |
+|-----------------------|-----------------------------------------------------------------------------|
 | `UserDomainService`   | Gère des règles comme l’unicité d’un email, l’activation d’un compte, etc.  |
 | `OrderPolicyService`  | Contient des règles métier de validation d’une commande                     |
 | `NotificationService` | Définit l’intention métier d’envoyer une notification (sans savoir comment) |
@@ -56,6 +57,7 @@ class UserDomainService(
 
 ## 🧪 Tests
 
-Les services du domaine sont **très faciles à tester unitairement**, en mockant simplement les dépendances comme les `repository`.
+Les services du domaine sont **très faciles à tester unitairement**, en mockant simplement les dépendances comme les
+`repository`.
 
 ---

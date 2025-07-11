@@ -32,6 +32,7 @@ public class Media {
     @JoinColumn(name = "post_id")
     private Post post;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type", columnDefinition = "media_type not null")
     private MediaType type;
 

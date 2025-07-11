@@ -1,6 +1,8 @@
 ### 📁 `infrastructure/repository` — README
 
-Le package `repository` contient les **adaptateurs de persistence**. Il implémente les **interfaces (ports)** définies dans le module `domain.repository` à l’aide de technologies comme **Spring Data JPA**, **MongoDB**, ou tout autre mécanisme de stockage.
+Le package `repository` contient les **adaptateurs de persistence**. Il implémente les **interfaces (ports)** définies
+dans le module `domain.repository` à l’aide de technologies comme **Spring Data JPA**, **MongoDB**, ou tout autre
+mécanisme de stockage.
 
 ---
 
@@ -15,7 +17,7 @@ Le package `repository` contient les **adaptateurs de persistence**. Il impléme
 ## 🧱 Composition typique
 
 | Élément               | Rôle                                                                  |
-| --------------------- | --------------------------------------------------------------------- |
+|-----------------------|-----------------------------------------------------------------------|
 | `JpaRepository`       | Interface Spring pour les opérations CRUD                             |
 | `Entity`              | Représente une table ou un document                                   |
 | `RepositoryImpl`      | Implémentation métier de l’interface définie dans `domain.repository` |
@@ -53,6 +55,7 @@ data class UserEntity(
     val email: String
 ) {
     fun toDomain() = User(id, name, Email(email))
+
     companion object {
         fun fromDomain(user: User) =
             UserEntity(user.id, user.name, user.email.value)
