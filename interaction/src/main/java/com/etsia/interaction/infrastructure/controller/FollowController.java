@@ -21,7 +21,7 @@ class FollowController {
         this.unFollowUseCase = unFollowUseCase;
     }
 
-    @PostMapping("/follow/{followerId}/{followedId}")
+    @PostMapping("/{followerId}/{followedId}")
     public ResponseEntity follow(@PathVariable int followerId, @PathVariable int followedId) {
         try {
             followUseCase.execute(followerId, followedId);
