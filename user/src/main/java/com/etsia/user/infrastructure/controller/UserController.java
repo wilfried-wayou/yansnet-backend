@@ -34,20 +34,20 @@ public class UserController {
     }
 
     @GetMapping("/email/{email}")
-    public ResponseEntity<Optional<UserDto>> FindByEmail(@PathVariable Email email) {
+    public ResponseEntity<Optional<UserDto>> FindByEmail(@PathVariable String email) {
         Optional<UserDto> userDto = userFindByEmailService.exec(email);
         return ResponseEntity.ok(userDto);
     }
 
     @GetMapping("/email/{email}/exists")
-    public ResponseEntity<Boolean> existsByEmail(@PathVariable Email email) {
+    public ResponseEntity<Boolean> existsByEmail(@PathVariable String email) {
         Boolean exists = userexistsByEmailService.exec(email);
         return ResponseEntity.ok(exists);
     }
 
     @GetMapping("/auth")
     public ResponseEntity<Optional<UserDto>> FindByEmailAndPassword(
-            @RequestParam Email email,
+            @RequestParam String email,
             @RequestParam String password) {
         Optional<UserDto> userDto = userFindByEmailAndPasswordService.exec(email, password);
         return ResponseEntity.ok(userDto);

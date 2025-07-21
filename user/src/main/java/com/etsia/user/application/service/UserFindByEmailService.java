@@ -18,7 +18,7 @@ public class UserFindByEmailService {
     private final UserRepository userRepository;
     private final UserDomainService userDomainService;
 
-    public Optional<UserDto> exec(Email Email){
+    public Optional<UserDto> exec(String Email){
         if(!userDomainService.existsByEmail(Email)){
             throw new EmailNotFoundException("Email Not found");
         }

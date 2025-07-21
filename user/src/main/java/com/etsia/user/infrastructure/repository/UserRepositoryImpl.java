@@ -27,19 +27,22 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Optional<UserDto> FindByEmail(Email email) {
-        User user = jpaUserRepository.findByEmail(email);
+    public Optional<UserDto> FindByEmail(String email) {
+        Email email_ = new Email(email);
+        User user = jpaUserRepository.findByEmail(email_);
         return Optional.ofNullable(mapToUserDto(user));
     }
 
     @Override
     public UserDto Save(CreateUserDto createUserDto) {
+        Email email = new Email(createUserDto.getEmail());
         // Créer une nouvelle instance de User
         User userEntity = new User();
         // Mapper les champs du DTO vers l'entité
-        userEntity.setEmail(createUserDto.getEmail());
-        userEntity.setPassword(createUserDto.getPassword());
         userEntity.setId(createUserDto.getId());
+        userEntity.setEmail(email);
+        userEntity.setPassword(createUserDto.getPassword());
+        //userEntity.setId(createUserDto.getId());
         // Définir les valeurs par défaut si nécessaire
         userEntity.setIsActive(true);
         userEntity.setIsBlocked(false);
@@ -55,13 +58,15 @@ public class UserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public Boolean existsByEmail(Email email) {
-        return jpaUserRepository.existsByEmail(email);
+    public Boolean existsByEmail(String email) {
+        Email email_ = new Email(email);
+        return jpaUserRepository.existsByEmail(email_);
     }
 
     @Override
-    public Optional<UserDto> FindByEmailAndPassword(Email email, String password) {
-        User user_profile = jpaUserRepository.findByEmail(email);
+    public Optional<UserDto> FindByEmailAndPassword(String email, String password) {
+        Email email_ = new Email(email);
+        User user_profile = jpaUserRepository.findByEmail(email_);
         if (user_profile != null && user_profile.getPassword().equals(password)) { throw new RuntimeException("User not found");}
         
         return Optional.ofNullable(mapToUserDto(user_profile));
@@ -69,9 +74,10 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     public UserDto update(UserUpdateDto user) {
+        Email email_ = new Email(user.getEmail());
         User user_update = new User();
         user_update.setId(user.getId());
-        user_update.setEmail(user.getEmail());
+        user_update.setEmail(email_);
         user_update.setPassword(user.getPassword());
         User user_update_ = jpaUserRepository.save(user_update);
         return mapToUserDto(user_update_);

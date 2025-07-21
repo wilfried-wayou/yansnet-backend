@@ -17,7 +17,7 @@ public class UserFindByEmailAndPasswordService {
     private final UserRepository userRepository;
     private final UserDomainService userDomainService;
 
-    public Optional<UserDto> exec(Email Email, String password){
+    public Optional<UserDto> exec(String Email, String password){
         if(!userDomainService.existsByEmail(Email)){
             throw new EmailNotFoundException("User not found");
         }

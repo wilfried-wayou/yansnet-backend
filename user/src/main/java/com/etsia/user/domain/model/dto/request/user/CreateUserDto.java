@@ -6,24 +6,35 @@ import com.etsia.common.domain.model.DepartmentDto;
 import com.etsia.common.domain.model.UserCategoryDto;
 import com.etsia.common.domain.model.sub.Email;
 import com.etsia.common.domain.model.sub.PhoneNumber;
+
+import com.etsia.common.infrastructure.config.EmailConverter;
+import com.etsia.common.infrastructure.config.PhoneNumberConverter;
+import com.etsia.common.infrastructure.entities.Batch;
+import com.etsia.common.infrastructure.entities.Department;
+import com.etsia.common.infrastructure.entities.UserCategory;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
 import lombok.Value;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.io.Serializable;
+
 
 
 @Builder
 @Value
 public class CreateUserDto implements Serializable {
+
+    @NotBlank(message = "ID is required")
     Integer id;
+
     @NotBlank(message = "Email is required")
-    Email email;
+    String email;
+
     @NotBlank
     String password;
+
     Boolean isActive;
     UserCategoryDto category;
     Boolean isBlocked;
@@ -33,4 +44,5 @@ public class CreateUserDto implements Serializable {
     int totalFollowers;
     int totalFollowing;
     int totalPosts;
+
 }

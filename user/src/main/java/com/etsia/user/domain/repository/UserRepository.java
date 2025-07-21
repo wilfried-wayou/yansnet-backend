@@ -9,10 +9,10 @@ import java.util.Optional;
 
 public interface UserRepository {
     Optional<UserDto> FindById(Integer id);
-    Optional<UserDto> FindByEmail(Email email);
+    Optional<UserDto> FindByEmail(String email);
     UserDto Save(CreateUserDto user);
-    Boolean existsByEmail(Email email);
-    Optional<UserDto> FindByEmailAndPassword(Email email, String password);
+    Boolean existsByEmail(String email);
+    Optional<UserDto> FindByEmailAndPassword(String email, String password);
     UserDto update(UserUpdateDto user);
     void Delete(Integer id);
 }

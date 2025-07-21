@@ -16,7 +16,7 @@ public class UserDomainService {
 
     private final UserRepository userRepository;
 
-    public Boolean IsEmailUnique(Email email){
+    public Boolean IsEmailUnique(String email){
         return !userRepository.existsByEmail(email);
     }
 
@@ -24,7 +24,7 @@ public class UserDomainService {
         return userRepository.FindById(id);
     }
 
-    public Optional<UserDto> FindByEmail(Email email) {
+    public Optional<UserDto> FindByEmail(String email) {
         return userRepository.FindByEmail(email);
     }
 
@@ -32,11 +32,11 @@ public class UserDomainService {
         return userRepository.Save(user);
     }
 
-    public Boolean existsByEmail(Email email) {
+    public Boolean existsByEmail(String email) {
         return userRepository.existsByEmail(email);
     }
 
-    public Optional<UserDto> FindByEmailAndPassword(Email email, String password) {
+    public Optional<UserDto> FindByEmailAndPassword(String email, String password) {
         return userRepository.FindByEmailAndPassword(email, password);
     }
 

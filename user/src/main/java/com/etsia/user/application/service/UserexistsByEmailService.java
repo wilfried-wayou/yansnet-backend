@@ -14,7 +14,7 @@ public class UserexistsByEmailService {
     private final UserRepository userRepository;
     private final UserDomainService userDomainService;
 
-    public Boolean exec(Email Email){
+    public Boolean exec(String Email){
         if(!userDomainService.existsByEmail(Email)){
             throw new EmailNotFoundException("Email Not found");
         }
