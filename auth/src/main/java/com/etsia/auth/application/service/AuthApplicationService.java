@@ -26,8 +26,7 @@ public class AuthApplicationService {
         this.keycloakAuthService = keycloakAuthService;
     }
 
-    public AuthResponse
-    login(LoginRequest loginRequest) {
+    public AuthResponse login(LoginRequest loginRequest) {
         Email email = new Email(loginRequest.getEmail());
         AuthUser user = authService.authenticate(email, loginRequest.getPassword());
 

@@ -34,7 +34,6 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.projectlombok:lombok")
     implementation("org.springframework.modulith:spring-modulith-starter-core")
-    implementation("org.springframework.boot:spring-boot-starter-validation")
     testImplementation("org.springframework.modulith:spring-modulith-starter-test")
     compileOnly("org.projectlombok:lombok")
     runtimeOnly("org.postgresql:postgresql")
