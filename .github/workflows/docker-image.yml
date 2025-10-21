@@ -6,11 +6,6 @@ on:
   pull_request:
     branches:
       - 'develop'
-    paths:
-      - 'yatBackend/**'
-      - '.github/workflows/deployment.yml'
-      - '**.yml'
-      - 'compose.yaml'
     types:
       - closed
 
